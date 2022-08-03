@@ -1,0 +1,9 @@
+<% include header.ejs %>
+    <div class="container-fluid">
+        <h1 class="mt-4">Giày mà bạn muốn tìm</h1><br>
+        <form action="/tim" method="POST">
+            <input type="text " name="tensp" placeholder="Nhập tên bánh cần tìm" >
+            <button  type="submit" style="margin-left: 20px;"> Search</button>
+        </form>
+    </div>
+<% include footer.ejs %>

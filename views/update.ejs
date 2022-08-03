@@ -1,0 +1,19 @@
+<% include headeradmin.ejs %>
+<h1 class="mt-4"> Update </h1><br>
+    <div class="container-fluid">
+        <form action="/sua" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name='maso' value="<%= hh._id %>">
+            <input type="text" name='tensp' placeholder="Sửa" value="<%= hh.tensp %>">
+            <input type="number" name='gia' placeholder="Sửa " value="<%= hh.gia %>">
+            <input type="file" name="hinhanh">
+            <% if (hh.hinhanh) { %> 
+            <img src="/images/<%= hh.hinhanh %> " height="100px">
+            <% } else { %>
+                <img src='https://via.placeholder.com/100' height="100px">
+                <!-- <img src="/images/no-img.png %> " height="100px">  -->
+                <% } %> 
+            <button type="submit" style="margin-left:10px ; margin-top: 10px ; background-color:gray"
+                class="btn btn-Warning">Sửa</button>
+        </form>
+    </div>
+    <% include footer.ejs %>

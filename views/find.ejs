@@ -1,0 +1,100 @@
+<!-- hearder -->
+<% include header.ejs %>
+  <!-- Page content-->
+  <div class="container-fluid">
+    <h1 class="mt-4"> All </h1>
+    <table class="table " border="1" style="font-family: Arial, Helvetica, sans-serif">
+      <tr>
+        <th>Tên Giày </th>
+        <th> Đơn Giá </th>
+        <th> Hình Ảnh </th>
+
+        <th> Thanh Toán </th>
+      </tr>
+      <% dshh.forEach(hh=>{ %>
+        <tr>
+          <td>
+            <%= hh.tensp %>
+          </td>
+          <td>
+            <%= hh.gia %>
+          </td>
+          <td>
+            <% if(hh.hinhanh!=null){ %>
+              <img src='/images/<%= hh.hinhanh %>' height="100px">
+              <% } else { %>
+                <!-- <img src='https://via.placeholder.com/100' height="100px"> -->
+                <img src='/images/no-img.png' height="100px">
+                <% } %>
+          </td>
+
+          <td>
+            <a href="#" class="btn btn-primary">Thanh Toán </a>
+          </td>
+          <% if (locals.userId) { %>
+            <td>
+              <a href="/them %>" class="btn btn-success">Thêm </a>
+              <a href="/sua/<%= hh._id %>" class="btn btn-primary">Sửa</a>
+              <a onclick="xoadulieu('<%= hh._id %>')" class="btn btn-danger">Xóa</a>
+            </td>
+            <% } %>
+        </tr>
+        <% }); %>
+    </table>
+  </div>
+  <% if (timkiem==false){%>
+    <% if (pages> 0 ) { %>
+      <nav class="mx-auto">
+        <ul class="pagination">
+          <% if (current==1) { %>
+            <li class="page-item disabled">
+              <a class="page-link">First</a>
+            </li>
+            <% } else { %>
+              <li class="page-item">
+                <a class="page-link" href="/1">First</a>
+              </li>
+              <% } %>
+
+                <% var i=(Number(current)>3 ? Number(current)-2:1) %>
+                  <% if(i!==1) { %>
+                    <li class="page-item disabled">
+                      <a class="page-link">...</a>
+                    </li>
+                    <% } %>
+                      <% for (; i <=(Number(current)+2) && i<=pages; i++) { %>
+                        <% if(i==current){ %>
+                          <li class="page-item active">
+                            <a class="page-link" href="/<%= i %>/">
+                              <%= i %>
+                            </a>
+                          </li>
+                          <% } else { %>
+                            <li class="page-item">
+                              <a class="page-link" href="/<%= i %>/">
+                                <%= i %>
+                              </a>
+                            </li>
+                            <% } %>
+                              <% if (i==Number(current)+2 && i<pages) { %>
+                                <li class="page-item disabled">
+                                  <a class="page-link">...</a>
+                                </li>
+                                <% } %>
+                                  <% } %>
+
+                                    <% if(current==pages) { %>
+                                      <li class="page-item disabled">
+                                        <a class="page-link">Last</a>
+                                      </li>
+                                      <% } else { %>
+                                        <li class="page-item ">
+                                          <a class="page-link" href="/<%= pages %>/">Last</a>
+                                        </li>
+                                        <% } %>
+        </ul>
+      </nav>
+      <% } %>
+        <% } %>
+          <!-- footer -->
+          <% include footer.ejs %>

@@ -1,0 +1,11 @@
+<% include headeradmin.ejs %>
+<h1 class="mt-4"> Delete </h1><br>
+    <div class="container-fluid">
+        <table boder="1">
+            <form action="/xoa" method="POST">
+                <input type="text" name='tensp' placeholder="Xóa ">
+                <button type="submit" style="margin-left:10px ; margin-top: 10px ; background-color:gray">Delete</button>
+            </form>
+        </table>
+    </div>
+    <% include footer.ejs %>

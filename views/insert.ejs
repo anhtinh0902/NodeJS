@@ -1,0 +1,12 @@
+<% include headeradmin.ejs %>
+<h1 class="mt-4"> Insert </h1><br>
+    <div class="container-fluid">
+        <form action="/them" method="POST" enctype="multipart/form-data">
+            <input type="text" name='tensp' placeholder="Thêm Giày" style="margin-left:10px ; margin-top: 10px ">
+            <input type="number" name='gia' placeholder="Giá Giày " style="margin-left:10px ; margin-top: 10px ">
+            <button type="submit" style="margin-left:10px ; margin-top: 10px ; background-color:gray">Thêm </button>
+            <input type="file" name="hinhanh">
+        </form>
+    </div>
+
+<% include footer.ejs %>
